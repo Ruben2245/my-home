@@ -1,3 +1,5 @@
+import java.awt.*;
+
 /**
  * This class represents a simple picture. You can draw the picture using
  * the draw method. But wait, there's more: being an electronic picture, it
@@ -14,8 +16,10 @@ public class Picture
     private Square wall;
     private Square window;
     private Triangle roof;
+    private Square field;
     private Circle sun;
-	private Circle moon;
+    private Circle moon; 
+    private boolean moonVisible;
     /**
      * Constructor for objects of class Picture
      */
@@ -47,20 +51,37 @@ public class Picture
         roof.moveHorizontal(20);
         roof.moveVertical(-60);
         roof.makeVisible();
-
+    
         sun = new Circle();
         sun.changeColor("yellow");
         sun.moveHorizontal(100);
-        sun.moveVertical(-40);
+        sun.moveVertical(-50);
         sun.changeSize(80);
         sun.makeVisible();
-		
-		moon = new Circle();
+    
+        field = new Square();
+        field.changeColor("green");
+        field.changeSize(2000);
+        field.moveVertical(125);
+        field.moveHorizontal(-400);
+        field.makeVisible();
+        
+        {
+            for (int i = 0; i < 280; i++) {
+                sun.slowMoveVertical(1);
+            }
+        }
+        
+ 
+        
+    moon = new Circle();
         moon.changeColor("magenta");
         moon.moveHorizontal(-100);
         moon.moveVertical(-60);
-        moon.changeSize(40);		
-		moon.makeVisible();
+        moon.changeSize(40);
+    moon.makeVisible();
+    
+    
     }
 
     /**
