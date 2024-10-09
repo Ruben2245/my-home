@@ -74,12 +74,12 @@ public class Picture
         
  
         
-    moon = new Circle();
+        moon = new Circle();
         moon.changeColor("magenta");
         moon.moveHorizontal(-100);
         moon.moveVertical(-60);
         moon.changeSize(40);
-    moon.makeVisible();
+        moon.makeVisible();
     
     
     }
@@ -111,4 +111,12 @@ public class Picture
             sun.changeColor("yellow");
         }
     }
-}
+    
+    public void amanecer() {
+            moon.makeInvisible();
+            for (int i = 0; i < 280; i++) { 
+                sun.moveVertical(-1); 
+            }
+
+        }
+    }
