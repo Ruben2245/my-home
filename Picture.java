@@ -20,6 +20,8 @@ public class Picture
     private Circle sun;
     private Circle moon; 
     private boolean moonVisible;
+    private Person personizq;
+    private Person personder;
     /**
      * Constructor for objects of class Picture
      */
@@ -38,7 +40,7 @@ public class Picture
         wall.moveVertical(20);
         wall.changeSize(120);
         wall.makeVisible();
-        
+
         window = new Square();
         window.changeColor("black");
         window.moveHorizontal(-120);
@@ -51,28 +53,27 @@ public class Picture
         roof.moveHorizontal(20);
         roof.moveVertical(-60);
         roof.makeVisible();
-    
+
         sun = new Circle();
         sun.changeColor("yellow");
         sun.moveHorizontal(100);
         sun.moveVertical(-50);
         sun.changeSize(80);
         sun.makeVisible();
-    
+
         field = new Square();
         field.changeColor("green");
         field.changeSize(2000);
         field.moveVertical(125);
         field.moveHorizontal(-400);
         field.makeVisible();
-        
+
         {
             for (int i = 0; i < 280; i++) {
                 sun.slowMoveVertical(1);
             }
         }
-        
- 
+
         
         moon = new Circle();
         moon.changeColor("magenta");
@@ -80,10 +81,15 @@ public class Picture
         moon.moveVertical(-60);
         moon.changeSize(40);
         moon.makeVisible();
-    
-    
-    }
 
+        personizq = new Person();
+        personizq.moveHorizontal(-200);
+        personizq.moveVertical(20);
+        
+        personder = new Person();
+        personder.moveHorizontal(200);
+        personder.moveVertical(20);
+    }
     /**
      * Change this picture to black/white display
      */
@@ -111,12 +117,15 @@ public class Picture
             sun.changeColor("yellow");
         }
     }
-    
-    public void amanecer() {
-            moon.makeInvisible();
-            for (int i = 0; i < 280; i++) { 
-                sun.moveVertical(-1); 
-            }
 
-        }
+    public void amanecer() {
+        for (int i = 0; i < 280; i++) {
+            sun.slowMoveVertical(-1);
+            moon.makeInvisible(); 
+            }
+        personizq.makeVisible();
+        personizq.slowMoveHorizontal(80);  
+        personder.makeVisible();
+        personder.slowMoveHorizontal(-180);
     }
+}
